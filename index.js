@@ -8,11 +8,7 @@ import {
   getFileStats,
 } from "./utils.js";
 
-const handleCommand = ({option, filePath, stdin}) => {
-  if(stdin) {
-    
-  }
-
+const handleCommand = ({ option, filePath }) => {
   switch (option) {
     case "-c":
       return getByteCount(filePath);
@@ -36,13 +32,12 @@ const main = () => {
     const stdin = process.stdin;
 
     const config = {
-      option: arg2 ? arg1 : null,
-      filePath: arg2 ?? arg1,
-      stdin
-    }
+      option: arg2 || !stdin.isTTY ? arg1 : null,
+      filePath: stdin.isTTY ? arg2 ?? arg1 : 0,
+    };
 
     try {
-      console.log(handleCommand(config) + " " + config.filePath);
+      console.log(handleCommand(config) + " " + (config.filePath || ""));
     } catch (err) {
       console.error(err);
     }
