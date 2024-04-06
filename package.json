@@ -1,0 +1,15 @@
+{
+  "name": "wcx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "wcx": "./index.js"
+  },
+  "author": "yashsolanki1709@gmail.com",
+  "license": "ISC",
+  "type": "module"
+}
